@@ -53,7 +53,7 @@ public class BoidManager : MonoBehaviour
                                                                                  Random.Range(-TankSize, TankSize),
                                                                                  Random.Range(-TankSize, TankSize));
         } 
-        if (foodactive)
+        else if (foodactive)
         {
             SetFoodDestination(idlePos);
         }
