@@ -160,7 +160,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 266.837, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &30157456
 MonoBehaviour:
@@ -1545,19 +1545,21 @@ MonoBehaviour:
   BoidNeighbourNumb: 1
   FishNames:
   - Sardine
-  - Fish2
-  - Fish3
-  - Fish4
-  - Fish5
+  - Tuna
+  - Seabass
+  - Sea Turtle
+  - Shiner Bass
+  - Shark
   SelectionName: {fileID: 30157456}
   BoidManagerToSpawn: {fileID: 1995511774405511101, guid: 4c6f10f849b15364f8ea13603a1cdeb0,
     type: 3}
   SelectedBoid:
   - {fileID: 3624780103484807131, guid: b4086cfc52bc33b43857c4f0972cf9b9, type: 3}
-  - {fileID: 3624780103484807131, guid: 8a4b75eb1f29fe0428a7ae822b8d1871, type: 3}
-  - {fileID: 3624780103484807131, guid: 3412334246a019d46987e831ff1bbb96, type: 3}
-  - {fileID: 3624780103484807131, guid: 3412334246a019d46987e831ff1bbb96, type: 3}
-  - {fileID: 3624780103484807131, guid: 3412334246a019d46987e831ff1bbb96, type: 3}
+  - {fileID: 5072321902590606381, guid: 10f6707dd282daf478264c8b88321bc8, type: 3}
+  - {fileID: 3300812979814895084, guid: d77f713f99ac875418ace777330aade4, type: 3}
+  - {fileID: 302271641308675316, guid: 99f958a014125b34ca89becde01d1c7e, type: 3}
+  - {fileID: 6661576280558282192, guid: 4c93fef31f0dd0e49b074352dcde06c2, type: 3}
+  - {fileID: 8631971078388524746, guid: 8ba34fdbc981cd546a2b3055df67ffae, type: 3}
 --- !u!4 &236282163
 Transform:
   m_ObjectHideFlags: 0
@@ -1571,7 +1573,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &250443546
 GameObject:
@@ -2413,66 +2415,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &413051376
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 413051378}
-  - component: {fileID: 413051377}
-  m_Layer: 0
-  m_Name: L3FishManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &413051377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413051376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af3ff856a315f0b4fbe5c2f75494d05a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FS: {fileID: 1844457001}
-  BB: {fileID: 0}
-  Boid: {fileID: 6159198714318841456, guid: 1c30ae8efa4cca342b2d9db9a0c67836, type: 3}
-  BoidArray: []
-  numBoids: 10
-  TankSize: 5
-  TankLimiter: 2
-  foodactive: 0
-  MinSpeed: 1
-  MaxSpeed: 2
-  nDistance: 10
-  RotationSpeed: 1
-  avoidanceStrength: 2
-  disperseRadius: 2
-  FoodPos: {x: 0, y: 0, z: 0}
-  idlePos: {x: 0, y: 0, z: 0}
---- !u!4 &413051378
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413051376}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.6, y: 10.77, z: 25.309998}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &453597380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2743,66 +2685,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479171782}
   m_CullTransparentMesh: 1
---- !u!1 &583448006
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 583448008}
-  - component: {fileID: 583448009}
-  m_Layer: 0
-  m_Name: L1FishManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &583448008
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 583448006}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.6, y: 10.77, z: 25.309998}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &583448009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 583448006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af3ff856a315f0b4fbe5c2f75494d05a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FS: {fileID: 891440175}
-  BB: {fileID: 0}
-  Boid: {fileID: 3212132092373591837, guid: 3d5e5d0c3aa7f0a43a987fb0abfef80f, type: 3}
-  BoidArray: []
-  numBoids: 60
-  TankSize: 5
-  TankLimiter: 2
-  foodactive: 0
-  MinSpeed: 1
-  MaxSpeed: 2
-  nDistance: 10
-  RotationSpeed: 1
-  avoidanceStrength: 2
-  disperseRadius: 2
-  FoodPos: {x: 0, y: 0, z: 0}
-  idlePos: {x: 0, y: 0, z: 0}
 --- !u!1 &623105622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3219,7 +3101,7 @@ Transform:
   - {fileID: 1606489080}
   - {fileID: 1844457000}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &798899570
 MonoBehaviour:
@@ -3487,7 +3369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25732a3f43aa4c245a9a618c7c809732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bm: {fileID: 583448009}
+  bm: {fileID: 0}
   foodPrefab: {fileID: 2534621007522648275, guid: 0170de9c88150574284bb5b7d6d798f0,
     type: 3}
   spawnedFood: []
@@ -3704,66 +3586,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1 &982431236
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 982431238}
-  - component: {fileID: 982431237}
-  m_Layer: 0
-  m_Name: L2FishManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &982431237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982431236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af3ff856a315f0b4fbe5c2f75494d05a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FS: {fileID: 1606489081}
-  BB: {fileID: 0}
-  Boid: {fileID: 3624780103484807131, guid: 911be9b5eadbab142935c999831a61b7, type: 3}
-  BoidArray: []
-  numBoids: 40
-  TankSize: 5
-  TankLimiter: 2
-  foodactive: 0
-  MinSpeed: 1
-  MaxSpeed: 2
-  nDistance: 10
-  RotationSpeed: 1
-  avoidanceStrength: 2
-  disperseRadius: 2
-  FoodPos: {x: 0, y: 0, z: 0}
-  idlePos: {x: 0, y: 0, z: 0}
---- !u!4 &982431238
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982431236}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.6, y: 10.77, z: 25.309998}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1002045267
 GameObject:
   m_ObjectHideFlags: 0
@@ -5293,7 +5115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25732a3f43aa4c245a9a618c7c809732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bm: {fileID: 982431237}
+  bm: {fileID: 0}
   foodPrefab: {fileID: 2534621007522648275, guid: f2ec634022e85d644b0b796febfd4d75,
     type: 3}
   spawnedFood: []
@@ -5927,7 +5749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25732a3f43aa4c245a9a618c7c809732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bm: {fileID: 413051377}
+  bm: {fileID: 0}
   foodPrefab: {fileID: 2534621007522648275, guid: 178702c8c8f7e094c818f8b45b674160,
     type: 3}
   spawnedFood: []
