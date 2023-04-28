@@ -47,15 +47,15 @@ MonoBehaviour:
   FS: {fileID: 0}
   BB: {fileID: 0}
   BoidArray: []
-  numBoids: 1
+  numBoids: 100
   TankSize: 6
   TankLimiter: 2
   foodactive: 0
-  MinSpeed: 1
-  MaxSpeed: 2
-  nDistance: 1
-  RotationSpeed: 0.1
-  avoidanceStrength: 2
-  disperseRadius: 0
+  MinSpeed: 3.93
+  MaxSpeed: 5
+  nDistance: 10
+  RotationSpeed: 1
+  avoidanceStrength: 5.93
+  disperseRadius: 5.97
   FoodPos: {x: 0, y: 0, z: 0}
   idlePos: {x: 0, y: 0, z: 0}
