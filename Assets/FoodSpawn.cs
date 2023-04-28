@@ -5,26 +5,20 @@ using UnityEngine;
 
 public class FoodSpawn : MonoBehaviour
 {
-    public GameObject Food;
     public BoidManager bm;
-    public bool FoodActive = false;
-    public GameObject[] foodarray;
-    private void Update()
+    public GameObject foodPrefab;
+    public List<GameObject> spawnedFood = new List<GameObject>();
+    public bool FoodSpawned = false;
+
+    public void SpawnFood(GameObject foodPrefab)
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SpawnFood();
-        }
-    }
-    public void SpawnFood()
-    {
-        FoodActive = true;
         Vector3 foodPos = bm.transform.position + new Vector3(UnityEngine.Random.Range(-bm.TankSize, bm.TankSize),
                                                               UnityEngine.Random.Range(-bm.TankSize, bm.TankSize),
                                                               UnityEngine.Random.Range(-bm.TankSize, bm.TankSize));
-        GameObject FOBJ = Instantiate(Food, foodPos, Quaternion.identity);
+
+        GameObject FOBJ = Instantiate(foodPrefab, foodPos, Quaternion.identity);
         bm.SetFoodDestination(foodPos);
-        //Array.Resize(ref foodarray, foodarray.Length + 1);
-        //foodarray[foodarray.Length - 1] = FOBJ;
+        spawnedFood.Add(FOBJ);
     }
+
 }

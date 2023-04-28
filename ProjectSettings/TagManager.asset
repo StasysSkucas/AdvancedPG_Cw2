@@ -7,7 +7,9 @@ TagManager:
   - L1Fish
   - L2Fish
   - L3Fish
-  - Food
+  - L1Food
+  - L2Food
+  - L3Food
   layers:
   - Default
   - TransparentFX

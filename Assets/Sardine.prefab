@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: -1315086505455545635}
   m_Layer: 0
   m_Name: Sardine
-  m_TagString: L1Fish
+  m_TagString: L2Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -926,7 +926,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4cf089456002947f5a69b1a5967819c1, type: 2}
+  - {fileID: 2100000, guid: 46376f95614883543b3a2971bd7633f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
