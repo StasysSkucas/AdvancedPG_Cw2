@@ -15,7 +15,7 @@ public class FoodManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            FS = GameObject.Find("L3FoodSpawner").GetComponent<FoodSpawn>();
+            FS = GameObject.Find("L2FoodSpawner").GetComponent<FoodSpawn>();
             FS.SpawnFood(FS.foodPrefab);
             FS.FoodSpawned = true;
         }

@@ -10,8 +10,8 @@ public class FoodScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        FS = GameObject.Find("L1FoodSpawner").GetComponent<FoodSpawn>();
-        Bb = GameObject.Find("L1FishManager").GetComponent<BoidManager>(); //Put FishManagerClone HERE
+        FS = GameObject.Find("FinalBoidManager(Clone)").GetComponent<FoodSpawn>();
+        Bb = GameObject.Find("FinalBoidManager(Clone)").GetComponent<BoidManager>(); //Put FishManagerClone HERE
         if (col.gameObject.CompareTag("Fish"))
         {
             if (FoodHealth > 0)
