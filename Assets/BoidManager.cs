@@ -28,83 +28,43 @@ public class BoidManager : MonoBehaviour
     [Range(2f, 10.0f)]
     public float disperseRadius;
 
-    public Vector3 FoodPos = Vector3.zero;
+    public Vector3 foodPos = Vector3.zero;
     public Vector3 idlePos = Vector3.zero;
     private void Start()
     {
         BoidArray = new GameObject[numBoids];
         for (int i = 0; i < numBoids; i++)
         {
-            Vector3 pos = this.transform.position + new Vector3(Random.Range(-TankSize, TankSize),
-                                                                Random.Range(-TankSize, TankSize),
-                                                                Random.Range(-TankSize, TankSize));
+            Vector3 pos = this.transform.localPosition + new Vector3(Random.Range(-TankSize, TankSize),
+                                                                     Random.Range(-TankSize, TankSize),
+                                                                     Random.Range(-TankSize, TankSize));
 
             BoidArray[i] = (GameObject)Instantiate(Boid, pos, Quaternion.identity);
 
             BoidArray[i].GetComponent<BoidBehaviour>().bmanager = this;
+
         }
     }
 
     private void LateUpdate()
     {
-        if (foodactive == false) 
+        if (!foodactive) 
         {
-            idlePos = this.transform.position + Random.Range(3, 4) * new Vector3(Random.Range(-TankSize, TankSize),
-                                                                                 Random.Range(-TankSize, TankSize),
-                                                                                 Random.Range(-TankSize, TankSize));
+            idlePos =  this.transform.localPosition + Random.Range(2,4) * new Vector3(Random.Range(-TankSize, TankSize),
+                                                                                      Random.Range(-TankSize, TankSize),
+                                                                                      Random.Range(-TankSize, TankSize));
         } 
         else if (foodactive)
         {
-            SetFoodDestination(idlePos);
+            SetFoodDestination(foodPos);
         }
     }
 
     public void SetFoodDestination(Vector3 FoodPos)
     {
         foodactive = true;
-        idlePos = FoodPos;
+        foodPos = FoodPos;
     }
 }
 
 
-
-
-
-//if (Boid.CompareTag("L1Fish"))
-//{
-//    L1Fish = true;
-//    idlePos = this.transform.position + Random.Range(2, 3) * new Vector3(Random.Range(-TankSize, TankSize),
-//                                                                         Random.Range(-TankSize, TankSize),
-//                                                                         Random.Range(-TankSize, TankSize));
-//    if (FS.FoodA == true)
-//    {
-//        L1Fish = false;
-//        idlePos = FS.foodPrefabA.transform.position;
-//    }
-//}
-
-//if (Boid.CompareTag("L2Fish"))
-//{
-//    L2Fish = true;
-//    idlePos = this.transform.position + Random.Range(4, 5) * new Vector3(Random.Range(-TankSize, TankSize),
-//                                                                         Random.Range(-TankSize, TankSize),
-//                                                                         Random.Range(-TankSize, TankSize));
-//    if (FS.FoodB == true)
-//    {
-//        L2Fish = false;
-//        idlePos = FS.foodPrefabB.transform.position;
-//    }
-//}
-
-//if (Boid.CompareTag("L3Fish"))
-//{
-//    L3Fish = true;
-//    idlePos = this.transform.position + Random.Range(5, 6) * new Vector3(Random.Range(-TankSize, TankSize),
-//                                                                         Random.Range(-TankSize, TankSize),
-//                                                                         Random.Range(-TankSize, TankSize));
-//    if (FS.FoodC == true)
-//    {
-//        L3Fish = false;
-//        idlePos = FS.foodPrefabC.transform.position;
-//    }
-//}

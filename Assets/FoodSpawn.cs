@@ -17,6 +17,7 @@ public class FoodSpawn : MonoBehaviour
                                                               UnityEngine.Random.Range(-bm.TankSize, bm.TankSize));
 
         GameObject FOBJ = Instantiate(foodPrefab, foodPos, Quaternion.identity);
+        FOBJ.transform.localPosition = foodPos;
         bm.SetFoodDestination(foodPos);
         spawnedFood.Add(FOBJ);
     }

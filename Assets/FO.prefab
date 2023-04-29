@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1796574304350574838}
   m_Layer: 0
   m_Name: FishV2
-  m_TagString: L1Fish
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: -7244361213695915680}
   m_Layer: 0
   m_Name: FO
-  m_TagString: L1Fish
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,3 +152,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bmanager: {fileID: 0}
+  FS: {fileID: 0}

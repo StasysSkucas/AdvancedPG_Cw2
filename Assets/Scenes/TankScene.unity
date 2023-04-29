@@ -428,7 +428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &413051377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,7 +455,7 @@ MonoBehaviour:
   RotationSpeed: 1
   avoidanceStrength: 2
   disperseRadius: 2
-  FoodPos: {x: 0, y: 0, z: 0}
+  foodPos: {x: 0, y: 0, z: 0}
   idlePos: {x: 0, y: 0, z: 0}
 --- !u!4 &413051378
 Transform:
@@ -520,17 +520,17 @@ MonoBehaviour:
   BB: {fileID: 0}
   Boid: {fileID: 3212132092373591837, guid: 3d5e5d0c3aa7f0a43a987fb0abfef80f, type: 3}
   BoidArray: []
-  numBoids: 60
+  numBoids: 100
   TankSize: 5
   TankLimiter: 2
   foodactive: 0
   MinSpeed: 1
   MaxSpeed: 2
-  nDistance: 10
+  nDistance: 3.6
   RotationSpeed: 1
-  avoidanceStrength: 2
-  disperseRadius: 2
-  FoodPos: {x: 0, y: 0, z: 0}
+  avoidanceStrength: 3.93
+  disperseRadius: 4.9
+  foodPos: {x: 0, y: 0, z: 0}
   idlePos: {x: 0, y: 0, z: 0}
 --- !u!1 &798899568
 GameObject:
@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bff70b2551fbaf48836c18ce4354667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FS: {fileID: 0}
+  FS: {fileID: 891440175}
 --- !u!1 &891440173
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,7 +808,7 @@ MonoBehaviour:
   RotationSpeed: 1
   avoidanceStrength: 2
   disperseRadius: 2
-  FoodPos: {x: 0, y: 0, z: 0}
+  foodPos: {x: 0, y: 0, z: 0}
   idlePos: {x: 0, y: 0, z: 0}
 --- !u!4 &982431238
 Transform:
@@ -890,7 +890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1606489080
 Transform:
   m_ObjectHideFlags: 0
@@ -939,7 +939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1844457000
 Transform:
   m_ObjectHideFlags: 0

@@ -4,18 +4,21 @@ public class BoidBehaviour : MonoBehaviour
 {
     public BoidManager bmanager;
     private float velocity;
-    public FoodSpawn FoodLoc;
+    public FoodSpawn FS;
 
     void Start()
     {
         velocity = Random.Range(bmanager.MinSpeed, bmanager.MaxSpeed);
-          
+        bmanager = GameObject.Find("L1FishManager").GetComponent<BoidManager>();
+        FS = GameObject.Find("L1FoodSpawner").GetComponent<FoodSpawn>();
     }
 
 
-    void Update()
+    void LateUpdate()
     {
         SetLimits();
+
+        TrackFood();
 
         if(Random.Range(0, 100) < 10f)
         BoidBehave();
@@ -26,8 +29,6 @@ public class BoidBehaviour : MonoBehaviour
     public void BoidBehave()
     {
         bmanager = GameObject.Find("L1FishManager").GetComponent<BoidManager>();
-        //bmanager = GameObject.Find("L2FishManager").GetComponent<BoidManager>();
-        bmanager = GameObject.Find("L3FishManager").GetComponent<BoidManager>();
         GameObject[] FOS;
         FOS = bmanager.BoidArray;
 
@@ -38,45 +39,20 @@ public class BoidBehaviour : MonoBehaviour
         Vector3 center = Vector3.zero;
         Vector3 avoid = Vector3.zero;
         Vector3 disperse = Vector3.zero;
-        bool foodFound = false;
-        Vector3 foodDir = Vector3.zero;  
-
-        GameObject[] foodObjects = GameObject.FindGameObjectsWithTag("Food");
-        if (foodObjects.Length > 0)
-        {
-            float closeDistance = float.MaxValue;
-            foreach (GameObject food in foodObjects)
-            {
-                distance = Vector3.Distance(food.transform.position, this.transform.position);
-                if (distance < closeDistance)
-                {
-                    closeDistance = distance;
-                    foodDir = (food.transform.position - this.transform.position).normalized;
-                    foodFound = true;
-                }
-            }
-        }
-        if (foodFound)
-        {
-            if (foodDir.magnitude > 0.001f)
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(foodDir), bmanager.RotationSpeed * Time.deltaTime);
-            }
-        }
-
+ 
         foreach (var f in FOS) 
         {
            if (f != this.gameObject)
            {
-                distance = Vector3.Distance(f.transform.position, this.transform.position);
+                distance = Vector3.Distance(f.transform.localPosition, this.transform.localPosition);
                 if (distance <= bmanager.nDistance)
                 {
-                    center += f.transform.position;
+                    center += f.transform.localPosition;
                     groupSize++;
 
                     if (distance < bmanager.avoidanceStrength) 
                     {
-                        avoid += avoid + (this.transform.position - f.transform.position);
+                        avoid += avoid + (this.transform.localPosition - f.transform.localPosition);
                     }
 
                     BoidBehaviour newBoidBehaviour = f.GetComponent<BoidBehaviour>();
@@ -87,9 +63,9 @@ public class BoidBehaviour : MonoBehaviour
 
         if (groupSize > 0) 
         {
-            center = center / groupSize + (bmanager.idlePos - this.transform.position);
+            center = center / groupSize + (bmanager.idlePos - this.transform.localPosition);
             velocity = gSpeed / groupSize;
-            Vector3 direction = ((center + avoid) - transform.position);
+            Vector3 direction = ((center + avoid) - transform.localPosition);
 
 
 
@@ -99,21 +75,21 @@ public class BoidBehaviour : MonoBehaviour
                 {
                     if (f != this.gameObject)
                     {
-                        distance = Vector3.Distance(f.transform.position, this.transform.position);
+                        distance = Vector3.Distance(f.transform.localPosition, this.transform.localPosition);
                         if (distance <= bmanager.disperseRadius)
                         {
-                            disperse += (this.transform.position - f.transform.position) / distance;
+                            disperse += (this.transform.localPosition - f.transform.localPosition) / distance;
                         }
                         BoidBehaviour newBoidBehaviour = f.GetComponent<BoidBehaviour>();
-                        gSpeed -= gSpeed + newBoidBehaviour.velocity; //I removed += For Dispersion Test 
+                        gSpeed += gSpeed + newBoidBehaviour.velocity * 2;
                     }
                 }
                 direction += disperse;
             }
                 
-            if (direction.magnitude > 0.001f)
+            if (direction != Vector3.zero)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), bmanager.RotationSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction.normalized), bmanager.RotationSpeed * Time.deltaTime);
             }
         }
         if (groupSize == 0) return;
@@ -122,91 +98,36 @@ public class BoidBehaviour : MonoBehaviour
 
     private void SetLimits()
     {
-        Bounds b = new(bmanager.transform.position, new Vector3(bmanager.TankSize, bmanager.TankSize, bmanager.TankSize) * bmanager.TankLimiter);
+        Bounds b = new(bmanager.transform.localPosition, new Vector3(bmanager.TankSize, bmanager.TankSize, bmanager.TankSize) * bmanager.TankLimiter);
 
-        if (b.Contains(transform.position))
+        if (b.Contains(transform.localPosition))
         {
             return;
         }
-        Vector3 turnDirection = (bmanager.transform.position - this.transform.position);
-        if (turnDirection.magnitude > 0.001f) 
+        Vector3 turnDirection = (bmanager.transform.localPosition - this.transform.localPosition);
+        if (turnDirection != Vector3.zero) 
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(turnDirection), bmanager.RotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(turnDirection.normalized), bmanager.RotationSpeed * Time.deltaTime);
         }
     }
+
+    public void TrackFood()
+    {
+        if (FS.FoodSpawned && bmanager.foodactive)
+        {
+            bmanager = GameObject.Find("L1FishManager").GetComponent<BoidManager>();
+            FS = GameObject.Find("L1FoodSpawner").GetComponent<FoodSpawn>();
+            float distanceToFood = Vector3.Distance(bmanager.foodPos, this.transform.localPosition);
+            if (distanceToFood <= bmanager.nDistance)
+            {
+                Vector3 foodDirection = (bmanager.foodPos - this.transform.localPosition).normalized;
+                if (foodDirection != Vector3.zero)
+                {
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(foodDirection.normalized), bmanager.RotationSpeed * Time.deltaTime);
+                }
+                transform.localPosition += Time.deltaTime * velocity * transform.forward;
+            }
+        }
+
+    }
 }
-
-
-
-
-
-//GameObject[] foodObjects = GameObject.FindGameObjectsWithTag("Food");
-//if (foodObjects.Length > 0)
-//{
-//    float closeDistance = float.MaxValue;
-//    foreach (GameObject food in foodObjects)
-//    {
-//        distance = Vector3.Distance(food.transform.position, this.transform.position);
-//        if (distance < closeDistance)
-//        {
-//            closeDistance = distance;
-//            foodDir = bmanager.idlePos - this.transform.position;
-//            foodFound = true;
-//        }
-//    }
-//}
-//if (foodFound)
-//{
-//    Vector3 directionF = foodDir;
-//    if (directionF != Vector3.zero)
-//    {
-//        //Velocity = FoodBoost here
-//        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionF), bmanager.RotationSpeed * Time.deltaTime);
-//    }
-//}
-//GameObject[] foodObjectsA = GameObject.FindGameObjectsWithTag("L1Food");
-//GameObject[] foodObjectsB = GameObject.FindGameObjectsWithTag("L2Food");
-//GameObject[] foodObjectsC = GameObject.FindGameObjectsWithTag("L3Food");
-
-//if (foodObjectsA.Length > 0 && gameObject.CompareTag("L1Fish"))
-//{
-//    float closeDistance = float.MaxValue;
-//    foreach (GameObject food in foodObjectsA)
-//    {
-//        distance = Vector3.Distance(food.transform.position, this.transform.position);
-//        if (distance < closeDistance)
-//        {
-//            closeDistance = distance;
-//            foodDir = food.transform.position - this.transform.position;
-//            foodFound = true;
-//        }
-//    }
-//}
-//else if (foodObjectsB.Length > 0 && gameObject.CompareTag("L2Fish"))
-//{
-//    float closeDistance = float.MaxValue;
-//    foreach (GameObject food in foodObjectsB)
-//    {
-//        distance = Vector3.Distance(food.transform.position, this.transform.position);
-//        if (distance < closeDistance)
-//        {
-//            closeDistance = distance;
-//            foodDir = food.transform.position - this.transform.position;
-//            foodFound = true;
-//        }
-//    }
-//}
-//else if (foodObjectsC.Length > 0 && gameObject.CompareTag("L3Fish"))
-//{
-//    float closeDistance = float.MaxValue;
-//    foreach (GameObject food in foodObjectsC)
-//    {
-//        distance = Vector3.Distance(food.transform.position, this.transform.position);
-//        if (distance < closeDistance)
-//        {
-//            closeDistance = distance;
-//            foodDir = food.transform.position - this.transform.position;
-//            foodFound = true;
-//        }
-//    }
-//}
