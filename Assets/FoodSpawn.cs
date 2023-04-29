@@ -9,24 +9,21 @@ public class FoodSpawn : MonoBehaviour
     public GameObject foodPrefab;
     public List<GameObject> spawnedFood = new List<GameObject>();
     public bool FoodSpawned = false;
-
-    private void Start()
-    {
-  
-    }
+ 
 
     public void SpawnFood(GameObject foodPrefab)
     {
         bm = GameObject.Find("FinalBoidManager(Clone)").GetComponent<FinalBoidManager>();
-        Vector3 foodPos = bm.transform.position + new Vector3(UnityEngine.Random.Range(-bm.TankSize, bm.TankSize),
-                                                              UnityEngine.Random.Range(-bm.TankSize, bm.TankSize),
-                                                              UnityEngine.Random.Range(-bm.TankSize, bm.TankSize));
+        Vector3 foodPos = bm.transform.position + new Vector3(UnityEngine.Random.Range(-bm.TankSize, bm.TankSize), -5, UnityEngine.Random.Range(-bm.TankSize, bm.TankSize));
 
         GameObject FOBJ = Instantiate(foodPrefab, foodPos, Quaternion.identity);
         FOBJ.transform.localPosition = foodPos;
         bm.SetFoodDestination(foodPos);
         spawnedFood.Add(FOBJ);
-        Destroy(FOBJ, 4f);
+        Destroy(FOBJ, 11f);
     }
+
+    
+
 
 }

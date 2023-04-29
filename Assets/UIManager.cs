@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 
     public Slider SpawnAmountSlider;
     public Slider SwimSpeedSlider;
+    public Slider SwimMaxSpeedSlider;
     public Slider RotationSpeedSlider;
     public Slider DisperseRadiusSlider;
     public Slider AvoidanceStrenghtSlider;
@@ -17,17 +18,19 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text SpawnNumb;
     public TMP_Text SpeedNumb;
+    public TMP_Text SpeedMaxNumb;
     public TMP_Text RotationSpeedNumb;
     public TMP_Text DispereseNumb;
     public TMP_Text AvoidanceNumb;
     public TMP_Text NeighbourNumb;
 
-    public float BoidSpawnNumb = 1;
+    public float BoidSpawnNumb = 5;
     public float BoidSpeedNumb = 1;
+    public float BoidMaxSpeedNumb = 2;
     public float BoidRotationSpeedNumb = 1;
-    public float BoidDispereseNumb = 1;
-    public float BoidAvoidanceNumb = 1;
-    public float BoidNeighbourNumb = 1;
+    public float BoidDispereseNumb = 5;
+    public float BoidAvoidanceNumb = 4;
+    public float BoidNeighbourNumb = 3.6f;
 
 
     public string[] FishNames;
@@ -39,20 +42,16 @@ public class UIManager : MonoBehaviour
     public GameObject[] SelectedBoid;
     void Start()
     {
+   
+
+
         SelectionNumb = 0;
         SelectionName.text = FishNames[0];
-        Debug.Log(FishNames.Length);
+       
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-          
-        }
-    }
+  
 
     public void RightArrow()
     {
@@ -92,31 +91,38 @@ public class UIManager : MonoBehaviour
     public void ReadSpeedNumb(float value)
     {
         BoidSpeedNumb = value;
-        SpeedNumb.text = value.ToString();
+        SpeedNumb.text = value.ToString("F1");
+
+    }
+
+    public void ReadMaxSpeedNumb(float value)
+    {
+        BoidMaxSpeedNumb = value;
+        SpeedMaxNumb.text = value.ToString("F1");
 
     }
     public void ReadRotationSpeedNumb(float value)
     {
         BoidRotationSpeedNumb = value;
-        RotationSpeedNumb.text = value.ToString();
+        RotationSpeedNumb.text = value.ToString("F1");
 
     }
     public void ReadDispereseNumb(float value)
     {
         BoidDispereseNumb = value;
-        DispereseNumb.text = value.ToString();
+        DispereseNumb.text = value.ToString("F1");
 
     }
     public void ReadAvoidanceNumb(float value)
     {
         BoidAvoidanceNumb = value;
-        AvoidanceNumb.text = value.ToString();
+        AvoidanceNumb.text = value.ToString("F1");
 
     }
     public void ReadNeighbourNumb(float value)
     {
         BoidNeighbourNumb  = value;
-        NeighbourNumb.text = value.ToString();
+        NeighbourNumb.text = value.ToString("F1");
 
     }
 

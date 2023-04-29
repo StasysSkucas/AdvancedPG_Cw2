@@ -17,17 +17,17 @@ public class FinalBoidManager : MonoBehaviour
     GameObject Boid;
 
     [Header("Boid Settings")]
-    [Range(0.0f, 5.0f)]
+
     public float MinSpeed;
-    [Range(0.0f, 5.0f)]
+
     public float MaxSpeed;
-    [Range(1.0f, 10.0f)]
+
     public float nDistance;
-    [Range(0.1f, 1.0f)]
+
     public float RotationSpeed;
-    [Range(2f, 10.0f)]
+
     public float avoidanceStrength;
-    [Range(2f, 10.0f)]
+
     public float disperseRadius;
 
     public Vector3 foodPos = Vector3.zero;
@@ -42,6 +42,7 @@ public class FinalBoidManager : MonoBehaviour
         RotationSpeed = uiManager.BoidRotationSpeedNumb;
         avoidanceStrength = uiManager.BoidAvoidanceNumb;
         disperseRadius = uiManager.BoidDispereseNumb;
+
     }
     private void Start()
     {
