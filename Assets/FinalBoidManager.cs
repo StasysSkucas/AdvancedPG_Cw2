@@ -37,7 +37,7 @@ public class FinalBoidManager : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
         numBoids = uiManager.BoidSpawnNumb;
         MinSpeed = uiManager.BoidSpeedNumb;
-        MaxSpeed = uiManager.BoidSpeedNumb + 10;
+        MaxSpeed = uiManager.BoidSpeedNumb;
         nDistance = uiManager.BoidNeighbourNumb;
         RotationSpeed = uiManager.BoidRotationSpeedNumb;
         avoidanceStrength = uiManager.BoidAvoidanceNumb;

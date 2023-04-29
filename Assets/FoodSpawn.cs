@@ -26,7 +26,7 @@ public class FoodSpawn : MonoBehaviour
         FOBJ.transform.localPosition = foodPos;
         bm.SetFoodDestination(foodPos);
         spawnedFood.Add(FOBJ);
-        //Destroy(FOBJ, 4f); TURN ON LATER
+        Destroy(FOBJ, 4f);
     }
 
 }
