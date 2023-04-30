@@ -10,7 +10,7 @@ public class BoidBehaviour : MonoBehaviour
     {
         velocity = Random.Range(bmanager.MinSpeed, bmanager.MaxSpeed);
         bmanager = GameObject.Find("L1FishManager").GetComponent<BoidManager>();
-        FS = GameObject.Find("L1FoodSpawner").GetComponent<FoodSpawn>();
+        FS = GameObject.FindGameObjectWithTag("FoodSpawner").GetComponent<FoodSpawn>();
     }
 
 
@@ -116,7 +116,7 @@ public class BoidBehaviour : MonoBehaviour
         if (FS.FoodSpawned && bmanager.foodactive)
         {
             bmanager = GameObject.Find("L1FishManager").GetComponent<BoidManager>();
-            FS = GameObject.Find("L1FoodSpawner").GetComponent<FoodSpawn>();
+            FS = GameObject.FindGameObjectWithTag("FoodSpawner").GetComponent<FoodSpawn>();
             float distanceToFood = Vector3.Distance(bmanager.foodPos, this.transform.localPosition);
             if (distanceToFood <= bmanager.nDistance)
             {
@@ -128,6 +128,5 @@ public class BoidBehaviour : MonoBehaviour
                 transform.localPosition += Time.deltaTime * velocity * transform.forward;
             }
         }
-
     }
 }

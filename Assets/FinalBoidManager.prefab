@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7008637022818713022}
   m_Layer: 0
   m_Name: FinalBoidManager
-  m_TagString: Untagged
+  m_TagString: BoidManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,5 +57,5 @@ MonoBehaviour:
   RotationSpeed: 1
   avoidanceStrength: 5.93
   disperseRadius: 5.97
-  FoodPos: {x: 0, y: 0, z: 0}
+  foodPos: {x: 0, y: 0, z: 0}
   idlePos: {x: 0, y: 0, z: 0}

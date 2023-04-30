@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-public class FoodScript : MonoBehaviour
+public class FinalFoodScript : MonoBehaviour
 {
     public FoodSpawn FS;
     [SerializeField] int FoodHealth = 1;

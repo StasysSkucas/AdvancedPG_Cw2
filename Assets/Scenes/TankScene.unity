@@ -526,7 +526,7 @@ MonoBehaviour:
   foodactive: 0
   MinSpeed: 1
   MaxSpeed: 2
-  nDistance: 3.6
+  nDistance: 10
   RotationSpeed: 1
   avoidanceStrength: 3.93
   disperseRadius: 4.9
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 891440175}
   m_Layer: 0
   m_Name: L1FoodSpawner
-  m_TagString: Untagged
+  m_TagString: FoodSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -886,11 +886,11 @@ GameObject:
   - component: {fileID: 1606489081}
   m_Layer: 0
   m_Name: L2FoodSpawner
-  m_TagString: Untagged
+  m_TagString: FoodSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1606489080
 Transform:
   m_ObjectHideFlags: 0
@@ -918,7 +918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25732a3f43aa4c245a9a618c7c809732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bm: {fileID: 982431237}
+  bm: {fileID: 583448009}
   foodPrefab: {fileID: 2534621007522648275, guid: f2ec634022e85d644b0b796febfd4d75,
     type: 3}
   spawnedFood: []
@@ -935,11 +935,11 @@ GameObject:
   - component: {fileID: 1844457001}
   m_Layer: 0
   m_Name: L3FoodSpawner
-  m_TagString: Untagged
+  m_TagString: FoodSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1844457000
 Transform:
   m_ObjectHideFlags: 0
@@ -967,7 +967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25732a3f43aa4c245a9a618c7c809732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bm: {fileID: 413051377}
+  bm: {fileID: 583448009}
   foodPrefab: {fileID: 2534621007522648275, guid: 178702c8c8f7e094c818f8b45b674160,
     type: 3}
   spawnedFood: []

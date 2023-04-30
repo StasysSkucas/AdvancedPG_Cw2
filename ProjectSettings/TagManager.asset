@@ -4,14 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - L1Fish
-  - L2Fish
-  - L3Fish
   - L1Food
   - L2Food
   - L3Food
   - Food
   - Fish
+  - FoodSpawner
+  - BoidManager
   layers:
   - Default
   - TransparentFX

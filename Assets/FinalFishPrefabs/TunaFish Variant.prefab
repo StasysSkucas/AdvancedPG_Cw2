@@ -88,6 +88,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TunaFish Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cd5a8db21ac3eeb4185b1133b46199f5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fish
+      objectReference: {fileID: 0}
     - target: {fileID: 2198742740515459966, guid: cd5a8db21ac3eeb4185b1133b46199f5,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -126,4 +131,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bmanager: {fileID: 0}
-  FoodLoc: {fileID: 0}
+  FS: {fileID: 0}

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
+    public FinalBoidManager FB;
     public int SelectionNumb = 0;
 
     public Slider SpawnAmountSlider;
@@ -38,17 +39,13 @@ public class UIManager : MonoBehaviour
     public TMP_Text SelectionName;
 
 
-    public GameObject BoidManagerToSpawn;
+    //public GameObject BoidManagerToSpawn;
     public GameObject[] SelectedBoid;
     void Start()
     {
-   
-
-
+        FB = GameObject.Find("FinalBoidManager").GetComponent<FinalBoidManager>();
         SelectionNumb = 0;
         SelectionName.text = FishNames[0];
-       
-        
     }
 
   
@@ -86,50 +83,43 @@ public class UIManager : MonoBehaviour
     {
         BoidSpawnNumb = value;
         SpawnNumb.text = value.ToString();
-
     }
     public void ReadSpeedNumb(float value)
     {
         BoidSpeedNumb = value;
         SpeedNumb.text = value.ToString("F1");
-
     }
 
     public void ReadMaxSpeedNumb(float value)
     {
         BoidMaxSpeedNumb = value;
         SpeedMaxNumb.text = value.ToString("F1");
-
     }
     public void ReadRotationSpeedNumb(float value)
     {
         BoidRotationSpeedNumb = value;
         RotationSpeedNumb.text = value.ToString("F1");
-
     }
     public void ReadDispereseNumb(float value)
     {
         BoidDispereseNumb = value;
         DispereseNumb.text = value.ToString("F1");
-
     }
     public void ReadAvoidanceNumb(float value)
     {
         BoidAvoidanceNumb = value;
         AvoidanceNumb.text = value.ToString("F1");
-
     }
     public void ReadNeighbourNumb(float value)
     {
         BoidNeighbourNumb  = value;
         NeighbourNumb.text = value.ToString("F1");
-
     }
 
 
     public void SpawnButton()
     {
-        Instantiate(BoidManagerToSpawn, new Vector3(8f, 10f, 25f), Quaternion.identity);
+        FB.SpawnBoids();
     }
 
     public void ResetAll()

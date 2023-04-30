@@ -1,7 +1,5 @@
 
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public class BoidManager : MonoBehaviour
 {
@@ -50,9 +48,9 @@ public class BoidManager : MonoBehaviour
     {
         if (!foodactive) 
         {
-            idlePos =  this.transform.localPosition + Random.Range(2,4) * new Vector3(Random.Range(-TankSize, TankSize),
-                                                                                      Random.Range(-TankSize, TankSize),
-                                                                                      Random.Range(-TankSize, TankSize));
+            idlePos =  this.transform.localPosition + Random.Range(2f,4f) * new Vector3(Random.Range(-TankSize, TankSize),
+                                                                                        Random.Range(-TankSize, TankSize),
+                                                                                        Random.Range(-TankSize, TankSize));
         } 
         else if (foodactive)
         {

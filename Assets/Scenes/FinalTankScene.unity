@@ -1868,6 +1868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac631700e80bb0f4b8a7cd1cf72a6f97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FB: {fileID: 8082138355533363692}
   SelectionNumb: 0
   SpawnAmountSlider: {fileID: 258814236}
   SwimSpeedSlider: {fileID: 1850721771}
@@ -1898,8 +1899,6 @@ MonoBehaviour:
   - Shiner Bass
   - Shark
   SelectionName: {fileID: 30157456}
-  BoidManagerToSpawn: {fileID: 1995511774405511101, guid: 4c6f10f849b15364f8ea13603a1cdeb0,
-    type: 3}
   SelectedBoid:
   - {fileID: 3624780103484807131, guid: b4086cfc52bc33b43857c4f0972cf9b9, type: 3}
   - {fileID: 5072321902590606381, guid: 10f6707dd282daf478264c8b88321bc8, type: 3}
@@ -1920,7 +1919,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &250443546
 GameObject:
@@ -3868,7 +3867,7 @@ Transform:
   - {fileID: 1606489080}
   - {fileID: 1844457000}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &798899570
 MonoBehaviour:
@@ -3883,84 +3882,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FS: {fileID: 891440175}
---- !u!1001 &808901061
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4670192510301125016, guid: c4a7af441c88e8247b31c9c43445dfe6,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670192510301125016, guid: c4a7af441c88e8247b31c9c43445dfe6,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670192510301125016, guid: c4a7af441c88e8247b31c9c43445dfe6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670192510301125016, guid: c4a7af441c88e8247b31c9c43445dfe6,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 25.309998
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670192510301125016, guid: c4a7af441c88e8247b31c9c43445dfe6,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670192510301125016, guid: c4a7af441c88e8247b31c9c43445dfe6,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670192510301125016, guid: c4a7af441c88e8247b31c9c43445dfe6,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670192510301125016, guid: c4a7af441c88e8247b31c9c43445dfe6,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670192510301125016, guid: c4a7af441c88e8247b31c9c43445dfe6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670192510301125016, guid: c4a7af441c88e8247b31c9c43445dfe6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670192510301125016, guid: c4a7af441c88e8247b31c9c43445dfe6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4950925144878192029, guid: c4a7af441c88e8247b31c9c43445dfe6,
-        type: 3}
-      propertyPath: m_Name
-      value: L1FishManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4950925144878192029, guid: c4a7af441c88e8247b31c9c43445dfe6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c4a7af441c88e8247b31c9c43445dfe6, type: 3}
 --- !u!1 &808936661
 GameObject:
   m_ObjectHideFlags: 0
@@ -4183,7 +4104,7 @@ GameObject:
   - component: {fileID: 891440175}
   m_Layer: 0
   m_Name: L1FoodSpawner
-  m_TagString: Untagged
+  m_TagString: FoodSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4196,7 +4117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891440173}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.545853, y: -12.658052, z: 5.0043125}
+  m_LocalPosition: {x: 8, y: 10, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4215,7 +4136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25732a3f43aa4c245a9a618c7c809732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bm: {fileID: 0}
+  bm: {fileID: 8082138355533363692}
   foodPrefab: {fileID: 2534621007522648275, guid: 0170de9c88150574284bb5b7d6d798f0,
     type: 3}
   spawnedFood: []
@@ -6179,7 +6100,7 @@ GameObject:
   - component: {fileID: 1606489081}
   m_Layer: 0
   m_Name: L2FoodSpawner
-  m_TagString: Untagged
+  m_TagString: FoodSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6192,7 +6113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606489079}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.545853, y: -12.658052, z: 5.0043125}
+  m_LocalPosition: {x: 8, y: 10, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6211,7 +6132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25732a3f43aa4c245a9a618c7c809732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bm: {fileID: 0}
+  bm: {fileID: 8082138355533363692}
   foodPrefab: {fileID: 2534621007522648275, guid: f2ec634022e85d644b0b796febfd4d75,
     type: 3}
   spawnedFood: []
@@ -6985,7 +6906,7 @@ GameObject:
   - component: {fileID: 1844457001}
   m_Layer: 0
   m_Name: L3FoodSpawner
-  m_TagString: Untagged
+  m_TagString: FoodSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6998,7 +6919,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1844456999}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.545853, y: -12.658052, z: 5.0043125}
+  m_LocalPosition: {x: 8, y: 10, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7017,7 +6938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25732a3f43aa4c245a9a618c7c809732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bm: {fileID: 0}
+  bm: {fileID: 8082138355533363692}
   foodPrefab: {fileID: 2534621007522648275, guid: 178702c8c8f7e094c818f8b45b674160,
     type: 3}
   spawnedFood: []
@@ -7556,6 +7477,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139357222}
   m_CullTransparentMesh: 1
+--- !u!1 &782310617455150063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8403568612262649741}
+  - component: {fileID: 8082138355533363692}
+  m_Layer: 0
+  m_Name: FinalBoidManager
+  m_TagString: BoidManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &8082138355533363692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782310617455150063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284f6f17da99bfa4394348f6c1b20b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FS: {fileID: 891440175}
+  BB: {fileID: 0}
+  BoidArray: []
+  numBoids: 100
+  TankSize: 6
+  TankLimiter: 2
+  foodactive: 0
+  MinSpeed: 3.93
+  MaxSpeed: 5
+  nDistance: 10
+  RotationSpeed: 1
+  avoidanceStrength: 5.93
+  disperseRadius: 5.97
+  foodPos: {x: 0, y: 0, z: 0}
+  idlePos: {x: 0, y: 0, z: 0}
 --- !u!114 &8335612929409708708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7635,6 +7600,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8335612929409708710}
   m_CullTransparentMesh: 1
+--- !u!4 &8403568612262649741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782310617455150063}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.6, y: 10.77, z: 25.309998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &8880266171090512580
 CanvasRenderer:
   m_ObjectHideFlags: 0

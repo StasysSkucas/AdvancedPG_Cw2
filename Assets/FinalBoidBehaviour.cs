@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FinalBoidBehaviour : MonoBehaviour
@@ -8,9 +9,9 @@ public class FinalBoidBehaviour : MonoBehaviour
 
     void Start()
     {
+        bmanager = GameObject.Find("FinalBoidManager").GetComponent<FinalBoidManager>();
+        FS = GameObject.FindGameObjectWithTag("FoodSpawner").GetComponent<FoodSpawn>();
         velocity = Random.Range(bmanager.MinSpeed, bmanager.MaxSpeed);
-        bmanager = GameObject.Find("FinalBoidManager(Clone)").GetComponent<FinalBoidManager>();
-        FS = GameObject.Find("L1FoodSpawner").GetComponent<FoodSpawn>();
     }
 
 
@@ -28,8 +29,8 @@ public class FinalBoidBehaviour : MonoBehaviour
 
     public void BoidBehave()
     {
-        bmanager = GameObject.Find("FinalBoidManager(Clone)").GetComponent<FinalBoidManager>();
-        GameObject[] FOS;
+        bmanager = GameObject.Find("FinalBoidManager").GetComponent<FinalBoidManager>();
+        List<GameObject> FOS;
         FOS = bmanager.BoidArray;
 
         float gSpeed = 0f;
@@ -67,8 +68,6 @@ public class FinalBoidBehaviour : MonoBehaviour
             velocity = gSpeed / groupSize;
             Vector3 direction = ((center + avoid) - transform.localPosition);
 
-
-
             if (groupSize >= 30)
             {
                 foreach (var f in FOS)
@@ -81,7 +80,7 @@ public class FinalBoidBehaviour : MonoBehaviour
                             disperse += (this.transform.localPosition - f.transform.localPosition) / distance;
                         }
                         FinalBoidBehaviour newBoidBehaviour = f.GetComponent<FinalBoidBehaviour>();
-                        gSpeed -= newBoidBehaviour.velocity;
+                        gSpeed += gSpeed + newBoidBehaviour.velocity * 2;
                     }
                 }
                 direction += disperse;
@@ -98,6 +97,7 @@ public class FinalBoidBehaviour : MonoBehaviour
 
     private void SetLimits()
     {
+        bmanager = GameObject.Find("FinalBoidManager").GetComponent<FinalBoidManager>();
         Bounds b = new(bmanager.transform.localPosition, new Vector3(bmanager.TankSize, bmanager.TankSize, bmanager.TankSize) * bmanager.TankLimiter);
 
         if (b.Contains(transform.localPosition))
@@ -113,17 +113,18 @@ public class FinalBoidBehaviour : MonoBehaviour
 
     public void TrackFood()
     {
+        bmanager = GameObject.Find("FinalBoidManager").GetComponent<FinalBoidManager>();
+        FS = GameObject.FindGameObjectWithTag("FoodSpawner").GetComponent<FoodSpawn>();
         if (FS.FoodSpawned && bmanager.foodactive)
         {
-            bmanager = GameObject.Find("FinalBoidManager(Clone)").GetComponent<FinalBoidManager>();
-            FS = GameObject.Find("L1FoodSpawner").GetComponent<FoodSpawn>();
+
             float distanceToFood = Vector3.Distance(bmanager.foodPos, this.transform.localPosition);
             if (distanceToFood <= bmanager.nDistance)
             {
                 Vector3 foodDirection = (bmanager.foodPos - this.transform.localPosition).normalized;
-                if (foodDirection != Vector3.zero && foodDirection.magnitude > Mathf.Epsilon && foodDirection.magnitude > 0.001f)
+                if (foodDirection != Vector3.zero)
                 {
-                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(foodDirection), bmanager.RotationSpeed * Time.deltaTime);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(foodDirection.normalized), bmanager.RotationSpeed * Time.deltaTime);
                 }
                 transform.localPosition += Time.deltaTime * velocity * transform.forward;
             }
