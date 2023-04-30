@@ -4,6 +4,7 @@ using UnityEngine;
 public class FinalBoidBehaviour : MonoBehaviour
 {
     public FinalBoidManager bmanager;
+    public FoodScript foodmanager;
     private float velocity;
     public FoodSpawn FS;
 
@@ -11,18 +12,27 @@ public class FinalBoidBehaviour : MonoBehaviour
     {
         bmanager = GameObject.Find("FinalBoidManager").GetComponent<FinalBoidManager>();
         FS = GameObject.FindGameObjectWithTag("FoodSpawner").GetComponent<FoodSpawn>();
+ 
         velocity = Random.Range(bmanager.MinSpeed, bmanager.MaxSpeed);
     }
 
 
-    void LateUpdate()
+    void Update()
     {
         SetLimits();
 
-        TrackFood();
-
-        if (Random.Range(0, 100) < 10f)
+        if (bmanager.foodactive)
+        {  
+            TrackFood();
+        }
+        else
+        {
+               if (Random.Range(0, 100) < 10f)
             BoidBehave();
+        }
+    
+
+     
 
         transform.Translate(0, 0, velocity * Time.deltaTime);
     }
@@ -113,15 +123,16 @@ public class FinalBoidBehaviour : MonoBehaviour
 
     public void TrackFood()
     {
+        foodmanager = GameObject.FindGameObjectWithTag("Food").GetComponent<FoodScript>();
         bmanager = GameObject.Find("FinalBoidManager").GetComponent<FinalBoidManager>();
         FS = GameObject.FindGameObjectWithTag("FoodSpawner").GetComponent<FoodSpawn>();
         if (FS.FoodSpawned && bmanager.foodactive)
         {
 
-            float distanceToFood = Vector3.Distance(bmanager.foodPos, this.transform.localPosition);
+            float distanceToFood = Vector3.Distance(foodmanager.ActualFoodPos, this.transform.localPosition);
             if (distanceToFood <= bmanager.nDistance)
             {
-                Vector3 foodDirection = (bmanager.foodPos - this.transform.localPosition).normalized;
+                Vector3 foodDirection = (foodmanager.ActualFoodPos - this.transform.localPosition).normalized;
                 if (foodDirection != Vector3.zero)
                 {
                     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(foodDirection.normalized), bmanager.RotationSpeed * Time.deltaTime);

@@ -12,6 +12,7 @@ public class FoodScript : MonoBehaviour
      float FloatForce = 0.01f;
     Rigidbody rb;
    public bool inWater = false;
+    public Vector3 ActualFoodPos;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,28 +28,33 @@ public class FoodScript : MonoBehaviour
     private void FixedUpdate()
     {
         rb.AddForce(Vector3.up * FloatForce); // this floats the food up
+        ActualFoodPos = transform.position;
+
     }
     private void OnTriggerEnter(Collider col)
     {
         FS = GameObject.FindGameObjectWithTag("FoodSpawner").GetComponent<FoodSpawn>();
         Bb = GameObject.Find("FinalBoidManager").GetComponent<FinalBoidManager>(); //Put FishManagerClone HERE
 
+        if (FoodHealth > 0)
+        {
+            FoodHealth--;
+        }
+
+        if (FoodHealth == 0)
+        {
+            if (FS.spawnedFood != null)
+            {
+                Bb.foodactive = false;
+                FS.spawnedFood.Remove(this.gameObject);
+            }
+            Destroy(this.gameObject, 0.5f);
+        }
+
         if (col.gameObject.CompareTag("Fish"))
         {
-            if (FoodHealth > 0)
-            {
-                FoodHealth--;
-            }
-
-            if (FoodHealth == 0)
-            {
-                if (FS.spawnedFood != null) 
-                { 
-                    Bb.foodactive = false;
-                    FS.spawnedFood.Remove(this.gameObject); 
-                }
-                Destroy(this.gameObject,0.5f);
-            }
+            Debug.Log("EAT BALLS");
+        
         }
     }
 }

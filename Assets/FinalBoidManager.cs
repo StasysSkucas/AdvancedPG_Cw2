@@ -44,6 +44,21 @@ public class FinalBoidManager : MonoBehaviour
         RotationSpeed = uiManager.BoidRotationSpeedNumb;
         avoidanceStrength = uiManager.BoidAvoidanceNumb;
         disperseRadius = uiManager.BoidDispereseNumb;
+
+
+
+
+        if (!foodactive)
+        {
+            idlePos = this.transform.localPosition + Random.Range(2f, 4f) * new Vector3(Random.Range(-TankSize, TankSize),
+                                                                                        Random.Range(-TankSize, TankSize),
+                                                                                        Random.Range(-TankSize, TankSize));
+        }
+        else if (foodactive)
+        {
+            SetFoodDestination(foodPos);
+        }
+        Debug.Log(foodactive);
     }
 
     public void SpawnBoids()
@@ -59,23 +74,11 @@ public class FinalBoidManager : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
-    {
-        if (!foodactive)
-        {
-            idlePos = this.transform.localPosition + Random.Range(2f, 4f) * new Vector3(Random.Range(-TankSize, TankSize),
-                                                                                        Random.Range(-TankSize, TankSize),
-                                                                                        Random.Range(-TankSize, TankSize));
-        }
-        else if (foodactive)
-        {
-            SetFoodDestination(foodPos);
-        }
-    }
     public void SetFoodDestination(Vector3 FoodPos)
     {
         foodactive = true;
-        foodPos = FoodPos;
+        this.foodPos = FoodPos;
+      
     }
 }
 
