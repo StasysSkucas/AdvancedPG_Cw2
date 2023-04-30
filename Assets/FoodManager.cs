@@ -31,14 +31,16 @@ public class FoodManager : MonoBehaviour
     public void RedFood()
     {
         FS = GameObject.Find("L1FoodSpawner").GetComponent<FoodSpawn>();
-        FS.SpawnFood(FS.foodPrefab);
+        //FS.SpawnFood(FS.foodPrefab);
+        FS.StartCoroutine(FS.SpawnFood(FS.foodPrefab));
         FS.FoodSpawned = true;
     }
 
     public void OrangeFood()
     {
         FS = GameObject.Find("L2FoodSpawner").GetComponent<FoodSpawn>();
-        FS.SpawnFood(FS.foodPrefab);
+        //FS.SpawnFood(FS.foodPrefab);
+        FS.StartCoroutine(FS.SpawnFood(FS.foodPrefab));
         FS.FoodSpawned = true;
     }
 
@@ -46,7 +48,8 @@ public class FoodManager : MonoBehaviour
     public void GreenFood()
     {
         FS = GameObject.Find("L3FoodSpawner").GetComponent<FoodSpawn>();
-        FS.SpawnFood(FS.foodPrefab);
+        //FS.SpawnFood(FS.foodPrefab);
+        FS.StartCoroutine(FS.SpawnFood(FS.foodPrefab));
         FS.FoodSpawned = true;
     }
 }

@@ -1,8 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class FoodSpawn : MonoBehaviour
 {
     public FinalBoidManager bm; //Final BM
@@ -11,7 +12,20 @@ public class FoodSpawn : MonoBehaviour
     public bool FoodSpawned = false;
  
 
-    public void SpawnFood(GameObject foodPrefab)
+    //public void SpawnFood(GameObject foodPrefab)
+    //{
+    //    GameObject.FindGameObjectWithTag("BoidManager").GetComponent<FinalBoidBehaviour>(); ;
+    //    Vector3 foodPos = bm.transform.localPosition + new Vector3(UnityEngine.Random.Range(-bm.TankSize, bm.TankSize), -5, UnityEngine.Random.Range(-bm.TankSize, bm.TankSize));
+    //    GameObject FOBJ = Instantiate(foodPrefab, foodPos, Quaternion.identity);
+    //    FOBJ.transform.localPosition = foodPos;
+    //    bm.SetFoodDestination(foodPos);
+    //    spawnedFood.Add(FOBJ);
+    //    Destroy(FOBJ, 11f);
+    //    spawnedFood.Remove(FOBJ);
+    //}
+
+    
+    public IEnumerator SpawnFood(GameObject foodPrefab)
     {
         GameObject.FindGameObjectWithTag("BoidManager").GetComponent<FinalBoidBehaviour>(); ;
         Vector3 foodPos = bm.transform.localPosition + new Vector3(UnityEngine.Random.Range(-bm.TankSize, bm.TankSize), -5, UnityEngine.Random.Range(-bm.TankSize, bm.TankSize));
@@ -19,11 +33,11 @@ public class FoodSpawn : MonoBehaviour
         FOBJ.transform.localPosition = foodPos;
         bm.SetFoodDestination(foodPos);
         spawnedFood.Add(FOBJ);
-        Destroy(FOBJ, 11f);
-        spawnedFood.Remove(FOBJ);
+        yield return new WaitForSeconds(11f);
+        FoodSpawned = false;
+        Destroy(FOBJ);
+
+
     }
-
-    
-
 
 }
