@@ -29,7 +29,6 @@ public class FoodScript : MonoBehaviour
     {
         rb.AddForce(Vector3.up * FloatForce); // this floats the food up
         ActualFoodPos = transform.position;
-
     }
     private void OnTriggerEnter(Collider col)
     {

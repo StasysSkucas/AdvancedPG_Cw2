@@ -6,9 +6,13 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
+    // reference to boid manager
     public FinalBoidManager FB;
+
+    // actual selected fish from array
     public int SelectionNumb = 0;
 
+    // all the slider values
     public Slider SpawnAmountSlider;
     public Slider SwimSpeedSlider;
     public Slider SwimMaxSpeedSlider;
@@ -17,6 +21,7 @@ public class UIManager : MonoBehaviour
     public Slider AvoidanceStrenghtSlider;
     public Slider NeighbourDistanceSlider;
 
+    // all the number values at the end of sliders
     public TMP_Text SpawnNumb;
     public TMP_Text SpeedNumb;
     public TMP_Text SpeedMaxNumb;
@@ -25,6 +30,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text AvoidanceNumb;
     public TMP_Text NeighbourNumb;
 
+    // actual variables for fish settings
     public float BoidSpawnNumb = 5;
     public float BoidSpeedNumb = 1;
     public float BoidMaxSpeedNumb = 2;
@@ -33,23 +39,23 @@ public class UIManager : MonoBehaviour
     public float BoidAvoidanceNumb = 4;
     public float BoidNeighbourNumb = 3.6f;
 
-
+    // array of fish names on UI
     public string[] FishNames;
-
     public TMP_Text SelectionName;
 
-
-    //public GameObject BoidManagerToSpawn;
+    // game object array of fish prefabs
     public GameObject[] SelectedBoid;
+
     void Start()
     {
+        // Get the reference to the script, make sure to set the number back to 0 and set the fish names array to 0
         FB = GameObject.Find("FinalBoidManager").GetComponent<FinalBoidManager>();
         SelectionNumb = 0;
         SelectionName.text = FishNames[0];
     }
 
   
-
+    // Left and Right Arrow functions to navigate through the menu selection
     public void RightArrow()
     {
         if (SelectionNumb < FishNames.Length - 1)
@@ -77,7 +83,7 @@ public class UIManager : MonoBehaviour
     }
 
 
-
+    // Methods that read and set the float values of the sliders to the actual fish settings
 
     public void ReadSpawnNumb(float value)
     {
@@ -117,11 +123,13 @@ public class UIManager : MonoBehaviour
     }
 
 
+    // Spawn button that calls the methods
     public void SpawnButton()
     {
         FB.SpawnBoids();
     }
 
+    // Reset button that restarts the scene
     public void ResetAll()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
