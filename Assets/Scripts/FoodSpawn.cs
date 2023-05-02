@@ -16,14 +16,14 @@ public class FoodSpawn : MonoBehaviour
 
 
 
-    public IEnumerator SpawnFood()
+    public IEnumerator SpawnFood() //Spawn Food Function
     {
-        GameObject.FindGameObjectWithTag("BoidManager").GetComponent<FinalBoidBehaviour>(); ;
+        GameObject.FindGameObjectWithTag("BoidManager").GetComponent<FinalBoidBehaviour>(); 
         Vector3 foodPos = bm.transform.localPosition + new Vector3(UnityEngine.Random.Range(-bm.TankSize, bm.TankSize), -5, UnityEngine.Random.Range(-bm.TankSize, bm.TankSize));
 
         int FoodChance = UnityEngine.Random.Range(0,100);
 
-        if (FoodChance < 30)
+        if (FoodChance < 30) //Spawn Food Prefab A
         {
             GameObject FOBJ = Instantiate(foodPrefabA, foodPos, Quaternion.identity);
             FOBJ.transform.position = foodPos;
@@ -33,7 +33,7 @@ public class FoodSpawn : MonoBehaviour
             bm.foodactive = false;
             Destroy(FOBJ);
         }
-        else if (FoodChance < 40)
+        else if (FoodChance < 40) //Spawn Food Prefab B
         {
             GameObject FOBJ = Instantiate(foodPrefabB, foodPos, Quaternion.identity);
             FOBJ.transform.position = foodPos;
@@ -43,7 +43,7 @@ public class FoodSpawn : MonoBehaviour
             bm.foodactive = false;
             Destroy(FOBJ);
         }
-        else 
+        else //Spawn Food Prefab C
         {
             GameObject FOBJ = Instantiate(foodPrefabC, foodPos, Quaternion.identity);
             spawnedFood.Add(FOBJ);

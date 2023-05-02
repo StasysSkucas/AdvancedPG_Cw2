@@ -27,10 +27,10 @@ public class FoodScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.AddForce(Vector3.up * FloatForce); 
-        ActualFoodPos = transform.position;
+        rb.AddForce(Vector3.up * FloatForce); //Floats the Food
+        ActualFoodPos = transform.position; //Set Food Position
     }
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerEnter(Collider col) //Check collision with the Food Object
     {
         FS = GameObject.FindGameObjectWithTag("FoodSpawner").GetComponent<FoodSpawn>();
         Bb = GameObject.Find("FinalBoidManager").GetComponent<FinalBoidManager>();
@@ -41,11 +41,8 @@ public class FoodScript : MonoBehaviour
 
         if (FoodHealth == 0)
         {
-            if (FS.spawnedFood != null)
-            {
                 Bb.foodactive = false;
-            }
-            Destroy(this.gameObject, 0.5f);
+                Destroy(this.gameObject, 0.5f);
         }
     }
 }

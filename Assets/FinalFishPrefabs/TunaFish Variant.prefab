@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cd5a8db21ac3eeb4185b1133b46199f5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.622313
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd5a8db21ac3eeb4185b1133b46199f5,
         type: 3}
@@ -41,7 +41,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cd5a8db21ac3eeb4185b1133b46199f5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 35.181038
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd5a8db21ac3eeb4185b1133b46199f5,
         type: 3}
@@ -131,4 +131,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bmanager: {fileID: 0}
+  foodmanager: {fileID: 0}
   FS: {fileID: 0}

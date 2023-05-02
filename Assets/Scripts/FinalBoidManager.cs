@@ -7,13 +7,14 @@ public class FinalBoidManager : MonoBehaviour
     [SerializeField] FinalBoidBehaviour BB;
     UIManager uiManager;
 
-    public List<GameObject> BoidArray = new List<GameObject>();
+    public List<GameObject> BoidList = new List<GameObject>();
     public float numBoids = 20;
-    public int TankSize = 6;
+    public int TankSize = 7;
     public float TankLimiter = 2f;
     public bool foodactive = false;
     GameObject Boid;
 
+    //Boid Settings//
     [Header("Boid Settings")]
 
     public float MinSpeed;
@@ -30,12 +31,12 @@ public class FinalBoidManager : MonoBehaviour
 
     public Vector3 foodPos = Vector3.zero;
     public Vector3 idlePos = Vector3.zero;
-    private void Awake()
+    private void Awake() // Reference to UI Manager
     {
         uiManager = FindObjectOfType<UIManager>();
     }
 
-    private void Update()
+    private void Update() // UI Manager Settings
     {
         numBoids = uiManager.BoidSpawnNumb;
         MinSpeed = uiManager.BoidSpeedNumb;
@@ -45,7 +46,7 @@ public class FinalBoidManager : MonoBehaviour
         avoidanceStrength = uiManager.BoidAvoidanceNumb;
         disperseRadius = uiManager.BoidDispereseNumb;
 
-        if (!foodactive)
+        if (!foodactive) //Update the idle position inside the tank while food is inactive
         {
             idlePos = this.transform.localPosition + Random.Range(2f, 4f) * new Vector3(Random.Range(-TankSize, TankSize),
                                                                                         Random.Range(-TankSize, TankSize),
@@ -53,6 +54,7 @@ public class FinalBoidManager : MonoBehaviour
         }
     }
 
+    //Function to Spawn Boids//
     public void SpawnBoids()
     {
         for (int i = 0; i < numBoids; i++)
@@ -61,9 +63,10 @@ public class FinalBoidManager : MonoBehaviour
                                                                      Random.Range(-TankSize, TankSize),
                                                                      Random.Range(-TankSize, TankSize));
             GameObject boid = (GameObject)Instantiate(uiManager.SelectedBoid[uiManager.SelectionNumb], pos, Quaternion.identity);
-            BoidArray.Add(boid);
-            BoidArray[i].GetComponent<FinalBoidBehaviour>().bmanager = this;
+            BoidList.Add(boid);
+            BoidList[i].GetComponent<FinalBoidBehaviour>().bmanager = this; //Reference to the BoidBehavior for each of the boids
         }
     }
 }
+
 
